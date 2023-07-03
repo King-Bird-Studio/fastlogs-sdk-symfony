@@ -1,0 +1,4 @@
+fastlogs:
+  slug: you slug Fastlogs
+  channel: ["!event"]
+  level: error

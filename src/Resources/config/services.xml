@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        https://symfony.com/schema/dic/services/services-1.0.xsd">
+
+<services>
+
+    <service id="fastlogs" class="fastlogs\FastlogsBundle\Fastlogs" public="true">
+        <argument></argument>
+        <argument></argument>
+    </service>
+    <service id="fastlogs\FastlogsBundle\Fastlogs" alias="fastlogs" public="false"/>
+
+    <service id="monolog.processor.session_request" class="fastlogs\FastlogsBundle\FastlogsProcessor">
+        <argument type="service" id="fastlogs\FastlogsBundle\Fastlogs" />
+        <argument></argument>
+        <argument></argument>
+        <tag name="monolog.processor" method="processRecord"/>
+    </service>
+
+<!--    Потом для реализации без monolog-->
+<!--    <service id="fastlogs\FastlogsBundle\EventListener\ErrorListener" class="fastlogs\FastlogsBundle\EventListener\ErrorListener">-->
+<!--        <argument type="service" id="fastlogs\FastlogsBundle\Fastlogs" />-->
+
+<!--        <tag name="kernel.event_listener" event="kernel.exception" method="handleExceptionEvent" priority="128" />-->
+<!--    </service>-->
+
+</services>
+</container>
