@@ -32,7 +32,7 @@ PHP 5.6+, установленные расширения json и curl.
 ```
 2. Подключить к проекту:
 ```bash
-composer require fastlogs/symfony-bundle:dev-master
+composer require fastlogs/symfony-bundle:dev-main
 ```
 
 3. Создать фаил конигурации config/packages/fastlogs.yaml
